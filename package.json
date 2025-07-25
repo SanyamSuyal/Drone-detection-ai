@@ -1,0 +1,17 @@
+{
+  "name": "drone-detection",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd backend && npm start",
+    "dev": "cd backend && npm run dev",
+    "start-frontend": "cd frontend && npm start",
+    "build": "cd frontend && npm run build",
+    "install-all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["drone-detection", "arduino", "iot", "security"],
+  "author": "Sanyam Suyal",
+  "license": "MIT",
+  "description": "Drone Detection & City Blackout Defense System"
+}

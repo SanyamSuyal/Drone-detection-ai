@@ -1,0 +1,46 @@
+{
+  "version": 2,
+  "name": "drone-detection-system",
+  "builds": [
+    {
+      "src": "backend/package.json",
+      "use": "@vercel/node",
+      "config": {
+        "maxLambdaSize": "50mb"
+      }
+    },
+    {
+      "src": "frontend/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "build"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "backend/server.js"
+    },
+    {
+      "src": "/socket.io/(.*)",
+      "dest": "backend/server.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "frontend/build/index.html"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "functions": {
+    "backend/server.js": {
+      "maxDuration": 30
+    }
+  },
+  "regions": ["iad1"],
+  "github": {
+    "silent": true
+  }
+}
